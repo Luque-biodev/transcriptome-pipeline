@@ -1,0 +1,29 @@
+# ---- Obligatorios ----
+working_dir         /ruta/a/trabajo
+experiment_name     mi_experimento
+installation_dir    /ruta/a/rnapipe
+genome_path         /ruta/al/genoma.fa
+annot_path          /ruta/a/anotacion.gtf      # .gtf, .gff o .gff3
+
+# Una condición por muestra, en el orden de las muestras. La PRIMERA es el control.
+experimental_design control control treated treated
+
+# ---- Muestras: usa UNA de las dos opciones ----
+# (a) lista explícita: basta el R1; el R2 se detecta (_R1/_R2 o _1/_2)
+path_sample_1       /ruta/muestras/ctrl1_R1.fq.gz
+path_sample_2       /ruta/muestras/ctrl2_R1.fq.gz
+path_sample_3       /ruta/muestras/trat1_R1.fq.gz
+path_sample_4       /ruta/muestras/trat2_R1.fq.gz
+# (b) carpeta que contiene solo las muestras (orden alfabético)
+# samples_path      /ruta/a/carpeta_muestras
+
+# ---- Opcionales (valor por defecto) ----
+author_name         marcos        # ($USER)
+organism            ath           # ath | hsa | mmu | none | auto (auto)
+gene_id_type        auto          # TAIR/ENSEMBL/SYMBOL/ENTREZID (según organismo)
+go_mode             BP            # BP | MF | CC | ALL (BP)
+pvalue_cutoff       0.05          # sobre padj (0.05)
+lfc_cutoff          1             # |log2FC| (1)
+threads             8             # (8)
+sa_index_nbases     11            # --genomeSAindexNbases de STAR (11)
+read_length         75            # longitud de lectura para prepDE.py (75)
